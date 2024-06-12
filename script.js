@@ -21,51 +21,23 @@ const sadImages = [
 
 
 function showMessage(response) {
-    if (response === "No") {
-        const noButton = document.getElementById("no-button");
-        const maxWidth = window.innerWidth - noButton.offsetWidth;
-        const maxHeight = window.innerHeight - noButton.offsetHeight;
+    if (response === "Yes") {
+        const yesButton = document.getElementById("yesButton");
+        const maxWidth = window.innerWidth - yesButton.offsetWidth;
+        const maxHeight = window.innerHeight - yesButton.offsetHeight;
 
-        noClickCount++;
+        yesClickCount++;
 
-        if(noClickCount <= 5){
-            document.getElementsByClassName("image")[0].src = sadImages[noClickCount - 1];
+        if(yesClickCount <= 10){
+            document.getElementsByClassName("image")[0].src = sadImages[yesClickCount - 2];
             document.getElementById("question").textContent =
-            "Told ya, please be my Valentine ˙◠˙";
+            "Hala ayaw paawat";
             document.getElementById("name").style.display = "none";
             document.getElementsByClassName("image2")[0].style.display = "none";
 
         } else {
-            document.getElementsByClassName("image")[0].src = "/images/cat-cats.gif";
-            const questionElement = document.getElementById("question");
-            questionElement.textContent =  "Okay Pookie, sorry for insisting so much. Of course I respect your boundaries and I'm sorry if I was being too pushy. I hope you have a fantastic Valentine's Day! And don't forget to drink water 🥛"
-            questionElement.className = "message-text";
-            noClickCount = 0;
-
-
-            document.getElementById("no-button").style.display = "none";
-            document.getElementById("yesButton").style.display = "none";
-        }
-
-        noButton.style.position = "absolute";
-
-        const randomX = Math.max(0, Math.floor(Math.random() * maxWidth));
-        const randomY = Math.max(0, Math.floor(Math.random() * maxHeight));
-
-        noButton.style.left = randomX + "px";
-        noButton.style.top = randomY + "px";
-
-
-    }
-
-    if (response === "Yes") {
-
-        document.getElementById("name").remove();
-        document.getElementById("no-button").remove();
-        document.getElementById("yesButton").remove();
-
-        const yesMessage = document.getElementById("question");
-        yesMessage.textContent = "YESSSSS, see you the 14th!!";
+            const yesMessage = document.getElementById("question");
+        yesMessage.textContent = "Okay, wow dili nag quit, love talaga ako haaa (my honest reaction:)";
         yesMessage.style.display = "block";
         yesMessage.style.fontStyle = "normal";
 
@@ -91,5 +63,33 @@ function showMessage(response) {
 
 /*         document.getElementsByClassName("image")[0].src = "images/dance.gif"; */
 
+
+
+            document.getElementById("no-button").style.display = "none";
+            document.getElementById("yesButton").style.display = "none";
+        }
+
+        noButton.style.position = "absolute";
+
+        const randomX = Math.max(0, Math.floor(Math.random() * maxWidth));
+        const randomY = Math.max(0, Math.floor(Math.random() * maxHeight));
+
+        noButton.style.left = randomX + "px";
+        noButton.style.top = randomY + "px";
+
+
+    }
+
+    if (response === "No") {
+
+        document.getElementById("name").remove();
+        document.getElementById("no-button").remove();
+        document.getElementById("yesButton").remove();
+
+        document.getElementsByClassName("image")[0].src = "/images/cat-cats.gif";
+        const questionElement = document.getElementById("question");
+        questionElement.textContent =  "aww, aray.. sakit sakit mo naman :("
+        questionElement.className = "message-text";
+        noClickCount = 0;
     }
 }
